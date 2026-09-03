@@ -1,0 +1,22 @@
+-------Concepts Covered-------
+
+Components
+JSX
+Props
+useState
+useEffect
+Conditional rendering
+Lists and .map()
+Forms
+API communication
+HTTP methods - GET, POST, PUT, DELETE
+Async JavaScript
+Loading and error states
+React Router - BrowserRouter,Routes,Route,Links,Navigation,Dynamic routes,Getting URL parameters,404 pages,Shared Layout,
+File and image uploads - formData
+
+
+--------Future Learning-----
+Context API
+Custom Hooks
+Authentication
