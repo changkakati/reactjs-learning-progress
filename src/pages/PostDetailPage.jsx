@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { useParams, Link, useNavigate } from "react-router-dom"
 
 import { getPost, deletePost } from "../api/posts"
+import { useAuth } from "../hooks/useAuth"
 
 export default function PostDetail() {
   const { id } = useParams()
@@ -10,6 +11,9 @@ export default function PostDetail() {
   const [post, setPost] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState("")
+
+  const { user } = useAuth()
+  const isOwner = user && post && user.id === post.user_id
 
   useEffect(() => {
     async function fetchPost() {
@@ -82,17 +86,23 @@ export default function PostDetail() {
 
       <br />
 
-      <Link to={`/posts/${id}/edit`}>
-        Edit Post
-      </Link>
+      {isOwner && (
 
-      <br />
+        <>
 
-      <br />
+          <Link to={`/posts/${id}/edit`}>
+            Edit Post
+          </Link>
 
-      <button onClick={handleDelete}>
-        Delete Post
-      </button>
+          <br />
+
+          <br />
+
+          <button onClick={handleDelete}>
+            Delete Post
+          </button>
+        </>
+      )}
 
     </div>
   )

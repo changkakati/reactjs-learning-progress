@@ -3,11 +3,16 @@ import { Link } from "react-router-dom"
 
 import { getPosts } from "../api/posts"
 import PostList from "../components/PostList"
+import { useAuth } from "../hooks/useAuth"
 
 export default function Home() {
   const [posts, setPosts] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState("")
+
+  const { user } = useAuth()
+  const isOwner = user
+
 
   useEffect(() => {
     async function fetchPosts() {
@@ -39,9 +44,11 @@ export default function Home() {
     <div>
       <h1>All Posts</h1>
 
-      <Link to="/posts/create">
-        Create New Post
-      </Link>
+      {isOwner && (
+        <Link to="/posts/create">
+          Create New Post
+        </Link>
+      )}
 
       <PostList posts={posts} />
     </div>

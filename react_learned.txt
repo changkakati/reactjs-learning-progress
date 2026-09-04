@@ -14,9 +14,10 @@ Async JavaScript
 Loading and error states
 React Router - BrowserRouter,Routes,Route,Links,Navigation,Dynamic routes,Getting URL parameters,404 pages,Shared Layout,
 File and image uploads - formData
-
-
---------Future Learning-----
 Context API
 Custom Hooks
 Authentication
+
+
+This calculation is causing performance problems - useMemo
+I need to directly focus this input - useRef
